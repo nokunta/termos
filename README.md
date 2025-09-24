@@ -67,3 +67,4 @@ Depois aceda a `http://localhost:8000`
 ## 📄 Licença
 
 Este projecto é de código aberto e está disponível para uso educativo.
+# termos
