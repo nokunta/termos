@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminologia Essencial de IA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Terminologia Essencial de IA</h1>
+            <p>Teste os seus conhecimentos sobre termos de Inteligência Artificial</p>
+        </header>
+
+        <div class="game-container">
+            <div class="score-board">
+                <div class="score">
+                    <span>Pontuação: </span>
+                    <span id="score">0</span>
+                </div>
+                <div class="streak">
+                    <span>Sequência: </span>
+                    <span id="streak">0</span>
+                </div>
+            </div>
+
+            <div class="game-area">
+                <div class="term-display">
+                    <h2 id="current-term">A carregar...</h2>
+                </div>
+
+                <div class="options-container">
+                    <div class="options" id="options-container">
+                        <!-- Opções serão inseridas aqui via JavaScript -->
+                    </div>
+                </div>
+
+                <div class="feedback" id="feedback">
+                    <!-- Feedback será mostrado aqui -->
+                </div>
+
+                <div class="controls">
+                    <button id="next-btn" class="btn btn-primary" disabled>Próximo Termo</button>
+                    <button id="restart-btn" class="btn btn-secondary">Reiniciar</button>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+        </div>
+
+            <div class="game-over" id="game-over" style="display: none;">
+                <h2>🎉 Parabéns!</h2>
+                <p>Completou todos os termos!</p>
+                <div class="final-stats">
+                    <p>Pontuação Final: <span id="final-score">0</span></p>
+                    <p>Sequência Máxima: <span id="max-streak">0</span></p>
+                </div>
+                <button id="play-again-btn" class="btn btn-primary">Jogar Novamente</button>
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
