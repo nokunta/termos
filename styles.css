@@ -238,9 +238,29 @@ header p {
 }
 
 .game-over h2 {
-    color: #28a745;
     font-size: 2.5rem;
     margin-bottom: 20px;
+}
+
+/* Diferentes cores para diferentes níveis de desempenho */
+.game-over h2.excellent {
+    color: #28a745; /* Verde para excelente */
+}
+
+.game-over h2.good {
+    color: #17a2b8; /* Azul para bom */
+}
+
+.game-over h2.study {
+    color: #ffc107; /* Amarelo para estudar mais */
+}
+
+.game-over h2.poor {
+    color: #fd7e14; /* Laranja para mau */
+}
+
+.game-over h2.very-poor {
+    color: #dc3545; /* Vermelho para muito mau */
 }
 
 .final-stats {

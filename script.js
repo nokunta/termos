@@ -242,7 +242,46 @@ class AIGame {
         this.gameStarted = false;
         this.finalScoreElement.textContent = this.score;
         this.maxStreakElement.textContent = this.maxStreak;
+        
+        // Calcular percentagem de acertos
+        const totalQuestions = termsDatabase.length;
+        const correctAnswers = this.score / 10; // 10 pontos por acerto
+        const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+        
+        // Ajustar mensagem baseada no desempenho
+        this.updateGameOverMessage(percentage, correctAnswers, totalQuestions);
+        
         this.gameOverElement.style.display = 'block';
+    }
+
+    updateGameOverMessage(percentage, correctAnswers, totalQuestions) {
+        const gameOverTitle = this.gameOverElement.querySelector('h2');
+        const gameOverMessage = this.gameOverElement.querySelector('p');
+        
+        // Remover classes anteriores
+        gameOverTitle.className = '';
+        
+        if (percentage >= 90) {
+            gameOverTitle.textContent = '🎉 Excelente!';
+            gameOverTitle.classList.add('excellent');
+            gameOverMessage.textContent = `Parabéns! Acertou ${correctAnswers} de ${totalQuestions} termos (${percentage}%)!`;
+        } else if (percentage >= 70) {
+            gameOverTitle.textContent = '👍 Bom trabalho!';
+            gameOverTitle.classList.add('good');
+            gameOverMessage.textContent = `Bem feito! Acertou ${correctAnswers} de ${totalQuestions} termos (${percentage}%).`;
+        } else if (percentage >= 50) {
+            gameOverTitle.textContent = '📚 Continue a estudar!';
+            gameOverTitle.classList.add('study');
+            gameOverMessage.textContent = `Acertou ${correctAnswers} de ${totalQuestions} termos (${percentage}%). Há espaço para melhorar!`;
+        } else if (percentage >= 30) {
+            gameOverTitle.textContent = '💪 Não desista!';
+            gameOverTitle.classList.add('poor');
+            gameOverMessage.textContent = `Acertou ${correctAnswers} de ${totalQuestions} termos (${percentage}%). Estude mais os conceitos de IA!`;
+        } else {
+            gameOverTitle.textContent = '📖 Precisa estudar mais!';
+            gameOverTitle.classList.add('very-poor');
+            gameOverMessage.textContent = `Apenas ${correctAnswers} de ${totalQuestions} termos correctos (${percentage}%). Revise os conceitos básicos de IA!`;
+        }
     }
 
     restartGame() {
